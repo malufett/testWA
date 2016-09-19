@@ -1,0 +1,25 @@
+{
+  "name": "WhatsAppExtension",
+  "version": "0.0.1",
+  "description": "A plugin for sending and reading WhatsApp messages",
+  "cordova": {
+    "id": "malufetts-whatsapp-ext-plugin",
+    "platforms": [
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/malufett/WhatsAppExtension.git"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "author": "malufett",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/malufett/WhatsAppExtension/issues"
+  },
+  "homepage": "https://github.com/malufett/WhatsAppExtension#readme"
+}

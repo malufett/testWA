@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="malufetts-whatsapp-ext-plugin" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>WhatsAppExtension</name>
+    <js-module name="WhatsAppExtension" src="www/WhatsAppExtension.js">
+        <clobbers target="WhatsAppExtension" />
+    </js-module>
+	<platform name="android">
+		<config-file parent="/*" target="res/xml/config.xml">
+			<feature name="WhatsAppExt">
+				<param name="android-package" value="malufetts-whatsapp-ext-plugin.WhatsAppExt" />
+			</feature>
+		</config-file>
+		<config-file parent="/*" target="AndroidManifest.xml"></config-file>
+		<source-file src="src/android/WhatsAppExt.java" target-dir="src/malufetts-whatsapp-ext-plugin/WhatsAppExt" />
+		<config-file parent="/*" target="AndroidManifest.xml">
+			<uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+		</config-file>
+	</platform>
+</plugin>
