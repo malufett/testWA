@@ -12,6 +12,7 @@ import android.telephony.TelephonyManager;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.Uri;
+import android.app.Activity;
 
 public class WhatsAppExt extends CordovaPlugin {
 
@@ -31,8 +32,8 @@ public class WhatsAppExt extends CordovaPlugin {
     	
     	switch(cmd){
     		case SEND:
-				String to = inputs.optString(0);
-				String message = inputs.optString(1);
+				String to = args.optString(0);
+				String message = args.optString(1);
 				sendWhatsAppMsg(to, message);
     			retval.put("code", StatusCode.SUCCESS_MSG_SENT);
 				break;
