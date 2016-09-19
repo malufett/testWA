@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/malufett/WhatsAppExtension.git"
+    "url": "git+https://github.com/malufett/testWA.git"
   },
   "keywords": [
     "ecosystem:cordova",
@@ -19,7 +19,7 @@
   "author": "malufett",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/malufett/WhatsAppExtension/issues"
+    "url": "https://github.com/malufett/testWA/issues"
   },
-  "homepage": "https://github.com/malufett/WhatsAppExtension#readme"
+  "homepage": "https://github.com/malufett/testWA#readme"
 }
