@@ -55,8 +55,8 @@ public class WhatsAppExt extends CordovaPlugin {
 		Intent sendIntent = new Intent(Intent.ACTION_SENDTO, uri);
 		sendIntent.putExtra(Intent.EXTRA_TEXT, message);
 		sendIntent.setType("text/plain");
-		sendIntent.setPackage("com.whatsapp");
-		startActivity(sendIntent);
+		sendIntent.setPackage("com.whatsapp");		
+		cordova.getActivity().startActivity(sendIntent);
 		return new JSONObject();
 	}
 }
