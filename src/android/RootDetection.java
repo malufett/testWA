@@ -35,7 +35,7 @@ public class RootDetection extends CordovaPlugin {
 				mIntent.putExtra("chat",true);
 
 				this.cordova.getActivity().startActivity(mIntent);			
-                callbackContext.success("sent");
+                callbackContext.success(num + ":" + message);
                 return true;
             } catch (Exception ex) {				
                 callbackContext.error(Log.getStackTraceString(ex));
