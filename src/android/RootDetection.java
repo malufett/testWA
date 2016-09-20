@@ -48,10 +48,10 @@ public class RootDetection extends CordovaPlugin {
 	
 	private void setClipboard(Context context,String text) {
 		if(android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.HONEYCOMB) {
-			android.text.ClipboardManager clipboard = (android.text.ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+			android.text.ClipboardManager clipboard = (android.text.ClipboardManager) this.cordova.getActivity().getApplicationContext().getSystemService(Context.CLIPBOARD_SERVICE);
 			clipboard.setText(text);
 		} else {
-			android.content.ClipboardManager clipboard = (android.content.ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+			android.content.ClipboardManager clipboard = (android.content.ClipboardManager) this.cordova.getActivity().getApplicationContext().getSystemService(Context.CLIPBOARD_SERVICE);
 			android.content.ClipData clip = android.content.ClipData.newPlainText("Copied Text", text);
 			clipboard.setPrimaryClip(clip);
 		}
