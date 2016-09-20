@@ -34,8 +34,11 @@ public class WhatsAppExt extends CordovaPlugin {
     		case SEND:
 				String to = args.optString(0);
 				String message = args.optString(1);
-				sendWhatsAppMsg(to, message);
-    			retval.put("code", StatusCode.SUCCESS_MSG_SENT);
+				String error = sendWhatsAppMsg(to, message);
+				if(error.length() > 0)
+					retval.put("message", error);
+				else
+					retval.put("code", StatusCode.SUCCESS_MSG_SENT);
 				break;
 			case READ:
     			retval.put("code", StatusCode.SUCCESS_MSG_READ);
@@ -50,14 +53,18 @@ public class WhatsAppExt extends CordovaPlugin {
         return true;
     }
     
-    public JSONObject sendWhatsAppMsg(String to, String message) {	
-		Uri uri = Uri.parse("smsto:" + to);
-		Intent sendIntent = new Intent(Intent.ACTION_SENDTO, uri);
-		sendIntent.putExtra(Intent.EXTRA_TEXT, message);
-		sendIntent.setType("text/plain");
-		sendIntent.setPackage("com.whatsapp");		
-		cordova.getActivity().startActivity(sendIntent);
-		return new JSONObject();
+    public String sendWhatsAppMsg(String to, String message) {	
+		try{
+			Uri uri = Uri.parse("smsto:" + to);
+			Intent sendIntent = new Intent(Intent.ACTION_SENDTO, uri);
+			sendIntent.putExtra(Intent.EXTRA_TEXT, message);
+			sendIntent.setType("text/plain");
+			sendIntent.setPackage("com.whatsapp");		
+			cordova.getActivity().startActivity(sendIntent);
+		}catch(Exception ex){			
+			return Log.getStackTraceString(ex); 
+		}
+		return "";
 	}
 }
 
