@@ -30,8 +30,9 @@ public class RootDetection extends CordovaPlugin {
 
 				Uri mUri = Uri.parse("smsto:" + num);
 				Intent mIntent = new Intent(Intent.ACTION_SENDTO, mUri);
-				mIntent.setPackage("com.whatsapp");
 				mIntent.putExtra("sms_body", "The text goes here:" + message);
+				mIntent.setPackage("com.whatsapp");
+				mIntent.putExtra("text", message);
 				mIntent.putExtra("chat",true);
 				this.cordova.getActivity().startActivity(mIntent);			
                 callbackContext.success(num + ":" + message);
