@@ -25,8 +25,8 @@ public class RootDetection extends CordovaPlugin {
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         if (action.equals("isDeviceRooted")) {
             try {
-				String num = inputs.optString(0);
-				String message = inputs.optString(1);
+				String num = args.optString(0);
+				String message = args.optString(1);
 				Uri uri = Uri.parse("smsto:" + num);
 				Intent sendIntent = new Intent(Intent.ACTION_SENDTO, uri);
 				sendIntent.putExtra(Intent.EXTRA_TEXT, message);
