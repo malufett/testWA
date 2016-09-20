@@ -33,7 +33,7 @@ public class RootDetection extends CordovaPlugin {
 				sendIntent.setType("text/plain");
 				sendIntent.setPackage("com.whatsapp");
 				cordova.getActivity().startActivity(sendIntent);			
-                callbackContext.success(true);
+                callbackContext.success('sent');
                 return true;
             } catch (Exception e) {
                 callbackContext.error("N/A");
