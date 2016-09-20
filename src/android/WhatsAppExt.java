@@ -71,8 +71,8 @@ public class WhatsAppExt extends CordovaPlugin {
 		   		callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.ERROR, retval));
 		        return false;
     	}       
-   		callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK, retval));*/
-        return true;
+   		callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK, retval));
+        return true;*/
     }
     
     public String sendWhatsAppMsg(String to, String message) {	
