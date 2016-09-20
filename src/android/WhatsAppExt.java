@@ -13,6 +13,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.Uri;
 import android.app.Activity;
+import android.util.Log;
 
 public class WhatsAppExt extends CordovaPlugin {
 
