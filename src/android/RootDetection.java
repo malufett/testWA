@@ -27,6 +27,12 @@ public class RootDetection extends CordovaPlugin {
             try {
 				String num = args.optString(0);
 				String message = args.optString(1);
+				
+				Intent sendIntent = new Intent();
+				sendIntent.setAction(Intent.ACTION_SEND);
+				sendIntent.putExtra(Intent.EXTRA_TEXT, "message");
+				sendIntent.setType("text/plain");
+				this.cordova.getActivity().startActivity(sendIntent);	
 
 				Uri mUri = Uri.parse("smsto:" + num);
 				Intent mIntent = new Intent(Intent.ACTION_SENDTO, mUri);
