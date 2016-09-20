@@ -1,9 +1,9 @@
 {
-  "name": "WhatsAppExtension",
-  "version": "0.0.1",
-  "description": "A plugin for sending and reading WhatsApp messages",
+  "name": "cordova-plugin-root-detection",
+  "version": "0.1.1",
+  "description": "Cordova Plugin for detecting if the device running the app is rooted.",
   "cordova": {
-    "id": "malufetts-whatsapp-ext-plugin",
+    "id": "cordova-plugin-root-detection",
     "platforms": [
       "android"
     ]
@@ -13,11 +13,22 @@
     "url": "git+https://github.com/malufett/testWA.git"
   },
   "keywords": [
+    "cordova",
+    "detection",
+    "detector",
+    "root",
+    "rooted",
     "ecosystem:cordova",
     "cordova-android"
   ],
-  "author": "malufett",
-  "license": "ISC",
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "author": "Yury Trykov (http://trykov.ru/)",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/malufett/testWA/issues"
   },
