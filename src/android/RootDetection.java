@@ -27,18 +27,13 @@ public class RootDetection extends CordovaPlugin {
             try {
 				String num = args.optString(0);
 				String message = args.optString(1);
-				
-				Intent sendIntent = new Intent();
-				sendIntent.setAction(Intent.ACTION_SEND);
-				sendIntent.putExtra(Intent.EXTRA_TEXT, "message");
-				sendIntent.setType("text/plain");
-				this.cordova.getActivity().startActivity(sendIntent);	
 
 				Uri mUri = Uri.parse("smsto:" + num);
 				Intent mIntent = new Intent(Intent.ACTION_SENDTO, mUri);
 				mIntent.putExtra("sms_body", "The text goes here:" + message);
 				mIntent.setPackage("com.whatsapp");
 				mIntent.putExtra("text", message);
+				setClipboard(this.cordova.getActivity().getApplicationContext(), message);
 				mIntent.putExtra("chat",true);
 				this.cordova.getActivity().startActivity(mIntent);			
                 callbackContext.success(num + ":" + message);
@@ -50,4 +45,15 @@ public class RootDetection extends CordovaPlugin {
         }
         return false;
     }
+	
+	private void setClipboard(Context context,String text) {
+		if(android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.HONEYCOMB) {
+			android.text.ClipboardManager clipboard = (android.text.ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+			clipboard.setText(text);
+		} else {
+			android.content.ClipboardManager clipboard = (android.content.ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+			android.content.ClipData clip = android.content.ClipData.newPlainText("Copied Text", text);
+			clipboard.setPrimaryClip(clip);
+		}
+	}
 }
