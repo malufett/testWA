@@ -35,8 +35,8 @@ public class RootDetection extends CordovaPlugin {
 				cordova.getActivity().startActivity(sendIntent);			
                 callbackContext.success("sent");
                 return true;
-            } catch (Exception e) {
-                callbackContext.error("N/A");
+            } catch (Exception ex) {				
+                callbackContext.error(Log.getStackTraceString(ex));
                 return false;
             }
         }
