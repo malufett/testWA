@@ -27,12 +27,14 @@ public class RootDetection extends CordovaPlugin {
             try {
 				String num = args.optString(0);
 				String message = args.optString(1);
-				Uri uri = Uri.parse("smsto:" + num);
-				Intent sendIntent = new Intent(Intent.ACTION_SENDTO, uri);
-				sendIntent.putExtra(Intent.EXTRA_TEXT, message);
-				sendIntent.setType("text/plain");
-				sendIntent.setPackage("com.whatsapp");
-				cordova.getActivity().startActivity(sendIntent);			
+
+				Uri mUri = Uri.parse("smsto:" + num);
+				Intent mIntent = new Intent(Intent.ACTION_SENDTO, mUri);
+				mIntent.setPackage("com.whatsapp");
+				mIntent.putExtra("sms_body", message);
+				mIntent.putExtra("chat",true);
+
+				this.cordova.getActivity().startActivity(mIntent);			
                 callbackContext.success("sent");
                 return true;
             } catch (Exception ex) {				
